@@ -1,0 +1,9 @@
+body {
+    color: rgb(187, 186, 186);
+    background: midnightblue
+}
+
+textarea {
+    min-height: 200px;
+    min-width: 400px;
+}
