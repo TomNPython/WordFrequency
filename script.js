@@ -16,12 +16,18 @@ const formInput = document.getElementById('form-input')
 
 function countFreqs(e) {
     e.preventDefault()
-    let newArr = []
+    //let newArr = []
     let strObj = {}
+
+    //Reset before each new submission
     listOfWords.innerHTML = ''
+
+    //Remove punctuation and split input into individual words
     let str = formInput.value
     let arr = str.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, '').toLowerCase().split(' ')
-    console.log(arr)
+
+
+    //For each word in array add it to an object if it doesn't exist and increment if it does
     arr.forEach(word => {
         if (!strObj[word]) {
             strObj[word] = 1
@@ -29,26 +35,44 @@ function countFreqs(e) {
             strObj[word]++
         }
     })
-    console.log(strObj)
+
+
+    //console.log(strObj)
     //console.log(Object.keys(strObj).sort())
-    for (let word in strObj) {
+    /*for (let word in strObj) {
         newArr.push([word, strObj[word]])
     }
     newArr.sort((a, b) => {
         return b[1] - a[1]
+    }) */
+
+    // For the entries in the object, sort them into descending order, then map them to list items
+    // and append to document
+    let mapped = Object.entries(strObj).sort((a, b) => {
+        return b[1] - a[1]
+    }).map(([k, v]) => {
+        let li = document.createElement('li')
+        li.textContent = `${k} : ${v}`
+        listOfWords.appendChild(li)
     })
-    console.log(newArr)
-    freqHeader.textContent = `Word Frequencies (a total of ${newArr.length} different words)`
-    newArr.forEach(wordPair => {
+
+
+    //listOfWords.append(mapped)
+    //console.log(newArr)
+
+    // Include total different words in header
+    freqHeader.textContent = `Word Frequencies (a total of ${mapped.length} different words)`
+
+
+    /*newArr.forEach(wordPair => {
         let li = document.createElement('li')
         li.textContent = `${wordPair[0]} : ${wordPair[1]}`
         listOfWords.appendChild(li)
-    })
+    })*/
 }
-// may need to trim end of words?
-//countFreqs(tempString)
 
+// Count frequencies of words on form submission
 formChecker.addEventListener('submit', countFreqs)
-//for each word in array add to object
 
-//append each object property to ul in order of frequency
+
+//need to trim each word?
