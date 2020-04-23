@@ -61,7 +61,7 @@ function countFreqs(e) {
     //console.log(newArr)
 
     // Include total different words in header
-    freqHeader.textContent = `Word Frequencies (a total of ${mapped.length} different words)`
+    freqHeader.textContent = `Word Frequencies: (a total of ${mapped.length} different words)`
 
 
     /*newArr.forEach(wordPair => {

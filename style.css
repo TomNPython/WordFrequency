@@ -1,6 +1,39 @@
 body {
-    color: rgb(187, 186, 186);
-    background: midnightblue
+    color: rgb(10, 10, 10);
+    background: rgb(226, 226, 228);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+p {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px
+}
+
+textarea {
+    border-radius: 5px;
+    box-shadow: 5px 10px 6px midnightblue;
+}
+
+button {
+    margin: 15px;
+}
+
+ul {
+    list-style: none;
+    columns: 3;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 10px 5px midnightblue;
+    margin: 0 auto;
+    max-width: 80%
+}
+
+li {
+    padding: 2px;
 }
 
 textarea {
