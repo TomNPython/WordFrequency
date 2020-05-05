@@ -1,8 +1,4 @@
-
-let tempString = 'Hello Hello. How are all you guys doing today? Today, I am doing great!'
-console.log('hi')
 // Add each individual word in an input to an object
-//let strObj = {}
 // if word already in array key[value]++, if not key[value] == 1
 const listOfWords = document.getElementById('word-list')
 const freqHeader = document.getElementById('freq-header')
@@ -12,7 +8,6 @@ const formInput = document.getElementById('form-input')
 //formInput.size = "50"
 
 //take input on submit and turn into array
-//string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(/\s/);
 
 function countFreqs(e) {
     e.preventDefault()
@@ -37,15 +32,6 @@ function countFreqs(e) {
     })
 
 
-    //console.log(strObj)
-    //console.log(Object.keys(strObj).sort())
-    /*for (let word in strObj) {
-        newArr.push([word, strObj[word]])
-    }
-    newArr.sort((a, b) => {
-        return b[1] - a[1]
-    }) */
-
     // For the entries in the object, sort them into descending order, then map them to list items
     // and append to document
     let mapped = Object.entries(strObj).sort((a, b) => {
@@ -57,18 +43,8 @@ function countFreqs(e) {
     })
 
 
-    //listOfWords.append(mapped)
-    //console.log(newArr)
-
     // Include total different words in header
     freqHeader.textContent = `Word Frequencies: (a total of ${mapped.length} different words)`
-
-
-    /*newArr.forEach(wordPair => {
-        let li = document.createElement('li')
-        li.textContent = `${wordPair[0]} : ${wordPair[1]}`
-        listOfWords.appendChild(li)
-    })*/
 }
 
 // Count frequencies of words on form submission
